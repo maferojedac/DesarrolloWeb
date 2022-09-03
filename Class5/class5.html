@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+
+    <title>Document</title>
+
+    <!-- interpreta el tipo de texto como con babel -->
+    <script type="text/babel"> 
+        //JSX Example
+        const divRoot = document.querySelector('#root');
+        //JSX = JS + XML(abrir y cerrar etiquetas)
+        const h1Tage = <h1>Hey there is react</h1>;
+        ReactDOM.render(h1Tage, divRoot)
+    </script>
+
+    <body>
+        <!-- sobrescribe en root, no vas a otra pagina sino todo dinamiacamente se esta insertando y quitando -->
+        <div id="root"></div>
+    </body>
+
+</html>

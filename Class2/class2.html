@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <title> Document </title>
+        <style>
+            /* en la clase puedes cambiar muchas caracteristicas (variables) en lugar de cambiar cosa por cosa
+            internal css-no buena practica, es mejor hacer un codigo por separado para eso */
+            .table_class {
+                color: aqua;
+            }
+            /* solo se usa en un lugar */
+            #table_id {
+                font-size: xx-large;
+            }
+        </style>
+
+        <!-- para importar cualquier cosa, tambien se puede hacer de servidores externos (getbootstrap) -->
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+        <h6>Second Class Learning:</h6>
+
+        <!-- las preguntas de un form casi siempre funcionan /(son como) con API's -->
+        <form action="/form" method="post">
+          <label for="name">Name:</label>
+          <!-- value-para mandar valores por defecto
+        sirven para que no se quede vacío -->
+          <input id="name" type="text" placeholder="Your name please" value="Mafer"/>
+
+            <!-- para poner una descripción larga, par ahacer salto de linea -->
+            <textarea>
+                Valor por defecto
+            </textarea>
+
+            <!-- input-no acepta hijos -->
+            <input id="lastname" type="text" placeholder="Your lastname please"/>
+
+            <!-- submit-para poner un boton -->
+            <input type="submit"/>
+
+            <!-- buttom-el valor por defecto es submit -->
+            <button>
+                Submit
+                <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLsiuPXm8HgJFlifwk2V2vwJswUOG2CueI9zD3NgmP&s"
+                />
+            </button>
+
+            <!-- resst-resetea los valores por defecto -->
+            <button type="reset"/>Reset</button>
+            <button type="buttom"/>Buttom</button>
+        </form>
+        
+
+        <br> <br> <br> <br> <br> <br> <br>
+        
+        <!-- LISTAS -->
+
+        <!-- lista desordenada -->
+        <ul>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+
+            <!-- lista aninada -->
+            <ol>
+                <!-- ctr+SPACEBAR  
+                style-para cambiar los simbolos que te pone al inicio
+            inline css-->
+                <li style="list-style-type: lower-greek;">Aninado</li>
+                <li style="list-style-type: lower-greek;">Aninado</li>
+            </ol>
+        </ul>
+
+        <!-- lista ordenada -->
+        <ol>
+            <!-- value-comienza desde el 10000 ascedente -->
+            <li value="10000">List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ol>
+
+
+        <br> <br> <br> <br> <br> <br> <br>
+
+        <!-- etiqueta para agrupar diferentes componentes -->
+        <div class="table_class" id="table_id">
+
+            <!-- TABLES -->
+            <table>
+                <!-- table head -->
+                <thead>
+                    <!-- tr-table row, crea una nueva fila -->
+                    <tr>
+                        <!-- th-table header -->
+                        <th>Nombre</th> 
+                        <th>Apellido</th> 
+                    </tr> 
+                </thead>
+
+                <!-- table body -->
+                <tbody>
+                    <tr id="table_id">
+                        <!-- td-table description -->
+                        <td>Mafer</td> 
+                        <td>Ojeda</td> 
+                    </tr>
+
+                    <tr>
+                        <!-- td-table description -->
+                        <td>Mafer</td> 
+                        <td>Ojeda</td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div><h1>Hello There</h1></div>
+        <div class="table_class"><h1>Hello There</h1></div>
+
+        <!-- en style.css -->
+        <div class="style1"><h1>Hello There</h1></div>
+        <div class="style1"><h1>Hello There</h1></div>
+        <div class="style1"><h1>Hello There</h1></div>
+        <div class="style2" id="iamanid"><h1>Hello There</h1></div>
+
+    </body>
+
+<!--se cierra la etiqueta -->
+</html>
