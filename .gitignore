@@ -1,1 +1,11 @@
-node_modules
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+
+/Class2
+/Class3
+/Class5
+/my-app
+.class4.js
