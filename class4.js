@@ -44,7 +44,9 @@ const age = 18;
 let message = (age < 3) ? 'Hello there you small one' :
     (age < 18) ? 'Hello' :
     (age < 100) ? 'Oh wow' :
-    'Error not valid age'
+    'Error not valid age';
+
+    console.log('mensaje', message)
     
 //ARROW FUNCTIONS
 
@@ -54,7 +56,7 @@ let sum_og = function(a,b) { return a + b}
 
 //resumido en una funcion de flecha
 //cuando es de una sola linea, no se necesita el return
-let sum_arrow_funcion =  (a,b) => a + b;
+let sum_arrow_funcion =  (a,b) => {a + b};
 
 //las funciones deben funcionar igual que una variable funcion
 //FUNCIONES ANONIMAS
@@ -102,12 +104,14 @@ const firstName1 = arr[0]
 const lastName1 = arr[1]
 
 //es lo mismo que poner que lo de arriba
-const [firstName, lastName] = arr;
+arr2[0] = "hola"
+arr2[1] = "k tal"
+const [firstName, lastName] = arr2;
 console.log('firstName', firstName, 'lastName', lastName)
 
-let arr2 = ['Maria', 'Fernanda', 'Ojeda']
-const [firstName2, lastName2] = arr;
-console.log('My new vars', firstName2, lastName2)
+let arr3 = ['Maria', 'Fernanda', 'Ojeda']
+const [firstName3, lastName3] = arr;
+console.log('My new vars', firstName3, lastName3)
 
 //arreglo de caracteres
 let [a,b,c] = 'xyz'
@@ -115,7 +119,7 @@ let [a,b,c] = 'xyz'
 //no necesitas un for para recorrerlo como a un arreglo
 let [one, two, three] = new Set ([1,2,3])
 
-console.log('a',a)
+console.log('a:',a)
 console.log('mySet',Set)
 
 
