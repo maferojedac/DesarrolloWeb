@@ -10,7 +10,7 @@ export const getTrending = async (
         //https://api.themoviedb.org/3/trending/all/day?api_key=c7afdcff2cf9f3825bdde70d488bb105
 
         //template key, se armo en base de las variables de entorno que ya se tiene
-        const url = `${Endpoint}/trending/${media_type}/${time_window}?apikey=${ApiKey};`
+        const url = `${Endpoint}/trending/${media_type}/${time_window}?apikey=${ApiKey}`;
 
         //await(promesa)-llamar a una funcion asíncrona y te devuelve una promesa
         //L15-16  -  código lineal

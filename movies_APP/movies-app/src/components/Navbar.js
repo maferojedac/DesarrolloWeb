@@ -16,9 +16,7 @@ export const Navbar = () => {
     <>
           <nav class="navbar navbar-expand-lg bg-light">
               <div class="container-fluid">
-                <Link className="container-fluid"
-                    to="/trending"
-                > 
+                <Link className="navbar-fluid" to="/"> 
                     MovieApp
                 </Link>
             
@@ -29,15 +27,15 @@ export const Navbar = () => {
 
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div class="navbar-nav">
-                          <Link className="navbar-nav"to="/home">
+                          <Link className="nav-link"to="/home">
                                 Home
                           </Link>
 
-                          <Link className="navbar-nav" to="/top10">
+                          <Link className="nav-link" to="/top10">
                             Top10
                           </Link>
 
-                          <Link className="navbar-nav" to="/trending">
+                          <Link className="nav-link" to="/trending">
                             Trending
                           </Link>
                           
