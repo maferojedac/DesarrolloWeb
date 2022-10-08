@@ -1,86 +1,110 @@
-import {React, useState} from 'react'
+import {React, useState} from 'react';
+import {v4 as uuid} from 'uuid';
+/* import TextField from "@mui/material/TextField"; */
+import './App.css';
+/* import List from './components/List'; */
 
-function App() {
+function App()
+{
 
-/*arreglo de lista para la lista por default*/
-const [defaultList, setDefaultList] = useState(
-  [ {id: 1,
-    item: 'Feed dog'},
+  /* para poner las palomitas de la lista */
+  const [check, setCheck] = useState([])
 
-    {id: 2,
-    item: 'Finish homework'},
+  /*arreglo de lista para la lista por default*/
+  const [defaultList, setDefaultList] = useState
+  (
+    [ {id: uuid(),
+      item: 'Feed dog',
+      check: false},
 
-    {id: 3,
-    item: 'Help mom'}
-  ])
+      {id: uuid(),
+      item: 'Finish homework',
+      check: false},
+
+      {id: uuid(),
+      item: 'Help mom',
+      check: false} ]
+  )
+
+ 
+  /* componente para borrar las tareas */
+  const deleteTask = (id) => 
+  {
+    const list = defaultList.filter((item) => item.id !== id)
+    console.log(id)
+
+    setDefaultList(list)
+  }
 
   
+  /* para que el usuario escriba */
+  const [userInput, setUserInput] = useState("")
 
-  const removeTask = (id) => {
-    console.log(id)
+
+  /* componente para agregar tareas */
+  const addTask = () =>
+  {
+    /* objeto de una nueva tarea */
+    const newTask = 
+    {
+      id: uuid(),
+      content: userInput 
+    }
+
+    /* para agregar las nuevas tareas */
+    setDefaultList([...defaultList, newTask])
+
+    /* para limpiar el input una vez creada la tarea */
+    setUserInput("")
   }
 
 
-  /*para imprimir la lista por default*/
-  const printDefaultList = defaultList.map(defaultItem => 
-      <li onClick={() => {removeTask(defaultItem.id)}} 
-        key={defaultItem.id}> {defaultItem.item} </li>
-  );
+  /* para buscar tareas*/
+  const searchTask = () =>
+  {
+
+    const buscado = defaultList.filter((item) =>
+      {
+        if(searchTask == "") {return item}
+        else if(item.content.toLowerCase().includes(searchTask.toLowerCase()))  {return item}
+      })
+
+      return (
+        <ul>
+          {buscado.map((item) => ( <li key={item.id}> {item.content} </li> ))}
+        </ul>
+      )
+  }
+
   
-
-/* arreglo vacío para la lista nueva ingresada por el usuario */
-const [list, setList] = useState([])
-
-
-/* para que el usuario escriba */
-const [userInput, setUserInput] = useState("")
-
-
-/* componente para agregar tareas */
-const addTask = () => {
-
-  /* objeto de una nueva tarea */
-  const newTask = {
-    id: 6,
-    content: userInput }
-
-  /* para agregar las nuevas tareas */
-  setList([...defaultList, newTask])
-
-  /* para limpiar el input una vez creada la tarea */
-  setUserInput("")
-}
-
-
-/* para buscar tareas */
-const [searchTask, setSearchTask] = useState("")
-
-/* para borrar tareas */
-const [deleteTask, setDeleteTask] = useState("")
-
-/* const newList = (id) => {
-  const newList
-}  */
-
-
   return (
     <div>
+
       <h1>To-do List</h1>
 
       <input
         type="text"
+        placeholder="Type here"
         value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}>
+        onChange={(event) => setUserInput(event.target.value)}>
       </input>
 
-      <button onClick={addTask}> + </button>
-      <button onClick={() => setUserInput}> Search </button>
+      <button onClick={() => addTask()}> + </button>
+      <button onClick={() => searchTask()}> Search </button>
+      <button onClick={() => deleteTask()}> Delete </button>
 
-      <ul>{printDefaultList}</ul>
+      {/* <List/> */}
 
+      {/* para imprimir la lista */}
+      <ul>
+        {defaultList.map((userInput) => 
+        (
+          <li key={userInput.id}> {userInput.content} </li> 
+        ))}
+        
+      </ul>
 
     </div>
   )
 }
-
 export default App
