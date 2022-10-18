@@ -9,25 +9,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const {router} =  require('./routes'); //trayendo las rutas
 
-//iniciializando 
-/* cambiamos "admin" a "firebase" */
-var firebase = require("firebase-admin");
-
-var serviceAccount = require("./key.json");
-
-/* exportando la bd de firebase */
-firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount)
-});
-
-//creando bd
-const db = firebase.firestore();
 
 
 //CREANDO LA APP DE EXPRESS l13-14
 const app = express();
-const apiPort = 3003; //porque react se levanta en el puerto 3k
+//si no encuentra el peurto 3k, lo corre en 3003
+const apiPort = process.env.API_PORT || 3003; //porque react se levanta en el puerto 3k
 
 //CONFIGURANDO NUESTRA APP l18-38
 
@@ -43,29 +32,7 @@ app.use(cors());
 //todo lo que nos llegue en body, lo castee como si fuera un json (auqneu no lo sea)
 app.use(bodyParser.json())
 
-//creando nuestro primer input
-//si alguien ingresa un /, le devuelve/responde "hello world"
-app.get('/', (req, res) => {
-    res.send('Hello world!');
-});
-
-//CRUD - create read updae delete
-
-//se hace llamada async porque nos conectaremos a internet
-app.post('/create', async(req,res) => {
-    try {
-        const {body : movie} = req; /* de todo el req solo queremos sacar el body, se renombra a movie */
-        const moviesDB = db.collection('movies'); //creando coleccion (tabla)
-       const {_path:{segments}} = await moviesDB.add(movie); /* para guardar datos, dejamos que la bd cree un id-add */
-       const id = segments[1];
-       res.send({
-        status: 200, //significa que todo bien
-        id
-       });
-    } catch (error) {
-        res.send(error)
-    }
-})
+app.use('/api', router); //cada vez que llega una / ejecuta alguna de las rutas de router
 
 //para decirle que no se muera una vez que termine de ejecutar todo, sino que se quede "dormida" hasta que le lleguen un requests
 //solo hasta que nosotros le indiquemos
