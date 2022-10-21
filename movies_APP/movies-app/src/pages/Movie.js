@@ -9,7 +9,7 @@ export const Movie = () => {
     const params = useParams();
     console.log('params:',params)
 
-    const {movie, isLoading} = useFetchMoviesByID(params.movieId);
+    const {movie, isLoading} = useFetchMoviesByID(movieId);
     console.log('movie:',movie)
 
   return (

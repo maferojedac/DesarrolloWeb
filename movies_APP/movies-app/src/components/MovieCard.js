@@ -1,5 +1,5 @@
 import React from 'react'
-import {useParams, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const MovieCard = (props) => {
 
@@ -13,13 +13,12 @@ const MovieCard = (props) => {
         overview,
     } = props;
 
-    const myTitle = name ? name : title; //si hay nombre que aparezca, si no aparece title
+    const myTitle = name ? name : title //si hay nombre que aparezca, si no aparece title
     const poster = `https://image.tmdb.org/t/p/original/${poster_path}`
-    const myOverview = overview.length > 50 ? `$(overview.substring(0, 49))...` : overview
+    const myOverview = overview.length > 100 ? `$(overview.substring(0, 99))...` : overview;
 
 
   return (
-    <>
         <div className='col'>
 
             <div className='card'>
@@ -57,10 +56,7 @@ const MovieCard = (props) => {
 
             </div>
 
-        </div>
-
-    </>
-   
+        </div>   
   )
 }
 
