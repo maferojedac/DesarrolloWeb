@@ -6,8 +6,8 @@
 
 //IMPORTANDO LAS DIFERENTES BIBLIOTECAS A USAR l9-11
 
-//const express = objeto de la libreria de express
-//requiere = palabra reservada
+//const express-objeto de la libreria de express
+//require-palabra reservada
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //le dice al navegador que "todo esta bien", si el cliente y el servidor estan en la misma maquina
 app.use(cors());
 
-//todo lo que nos llegue en body, lo castee como si fuera un json (auqneu no lo sea)
+//todo lo que nos llegue en body, lo castee como si fuera un json (aunque no lo sea)
 app.use(bodyParser.json())
 
 //creando nuestro primer input
@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
     res.send('Hello world!');
 });
 
-//CRUD - create read updae delete
+//CRUD - create read update delete
 
 //CREATE MOVIE
 //se hace llamada async porque nos conectaremos a internet

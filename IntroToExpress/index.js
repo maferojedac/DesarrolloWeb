@@ -11,6 +11,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const {router} =  require('./routes'); //trayendo las rutas
 
+//guardando ref a las librerias a usar
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json');
+
+
 
 
 //CREANDO LA APP DE EXPRESS l13-14
@@ -33,6 +38,8 @@ app.use(cors());
 app.use(bodyParser.json())
 
 app.use('/api', router); //cada vez que llega una / ejecuta alguna de las rutas de router
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile)) //
 
 //para decirle que no se muera una vez que termine de ejecutar todo, sino que se quede "dormida" hasta que le lleguen un requests
 //solo hasta que nosotros le indiquemos

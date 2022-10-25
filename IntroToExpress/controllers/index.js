@@ -11,6 +11,30 @@ const {db} = FS;
 //CREATE MOVIE
 //se hace llamada async porque nos conectaremos a internet
 const createMovie = async(req,res) => {
+
+    /*  #swagger.parameters['obj'] = {
+                in: 'body',
+                description: 'Structure of movie to be created. This doesn\'t need to have an id yet as the db will be generating it for us',
+                schema: {
+                    $name: 'Avatar',
+                    $author: 'James Cameron',
+                    time: ['20:00', '22:00'],
+                    rating: 5.00
+                }
+        }
+        #swagger.responses[200] = {
+                description: 'Movie successfully obtained.',
+                schema: { $ref: '#/definitions/Movie' }
+        }
+        #swagger.responses[500] = {
+                description: 'Error.',
+                schema: { $ref: '#/definitions/GenericError' }
+        }
+        #swagger.produces = ['application/json']
+        #swagger.consumes = ['application/json']
+        */
+
+
     try {
         const {body : movie} = req; /* de todo el req solo queremos sacar el body, se renombra a movie */
         const moviesDB = db.collection('movies'); //creando coleccion (tabla)

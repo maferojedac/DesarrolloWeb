@@ -3,6 +3,8 @@ import {useParams} from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import {useFetchMoviesByID} from '../hooks/useFetchMoviesByID';
 
+
+
 export const Movie = () => {
 
     //usa los parametros que se mandana por la URL
